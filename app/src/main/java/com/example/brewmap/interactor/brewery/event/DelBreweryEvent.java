@@ -2,13 +2,15 @@ package com.example.brewmap.interactor.brewery.event;
 
 import com.example.brewmap.model.Brewery;
 
-public class GetBreweryEvent {
+import java.util.List;
+
+public class DelBreweryEvent {
     private int code;
     private Brewery brewery;
     private Throwable throwable;
 
-    public GetBreweryEvent(){}
-    public GetBreweryEvent(int code, Brewery brewery, Throwable throwable){
+    public DelBreweryEvent(){}
+    public DelBreweryEvent(int code, Brewery brewery, Throwable throwable){
         this.code = code;
         this.brewery = brewery;
         this.throwable = throwable;
