@@ -1,4 +1,6 @@
-package com.example.brewmap.network;
+package com.example.brewmap.mock;
+
+import com.example.brewmap.network.BreweryApi;
 
 import javax.inject.Singleton;
 
@@ -8,7 +10,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 @Module
-public class NetworkModule {
+public class MockNetworkModule {
     @Provides
     @Singleton
     public Retrofit.Builder provideRetrofit(){
@@ -17,7 +19,7 @@ public class NetworkModule {
 
     @Provides
     @Singleton
-    public BreweryApi provideBreweryApi(@org.jetbrains.annotations.NotNull Retrofit.Builder retrofitBuilder){
-        return retrofitBuilder.baseUrl(NetworkConfig.ENDPOINT_ADDRESS).build().create(BreweryApi.class);
+    public BreweryApi provideBreweryApi(Retrofit.Builder retrofitBuilder){
+        return new MockBreweryApi();
     }
 }

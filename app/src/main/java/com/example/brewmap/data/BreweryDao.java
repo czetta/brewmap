@@ -10,21 +10,21 @@ import java.util.List;
 
 @Dao
 public interface BreweryDao {
-    @Query("SELECT * FROM brewery")
-    List<Brewery> getAll();
+  @Query("SELECT * FROM brewery")
+  List<Brewery> getAll();
 
-    @Query("SELECT * FROM brewery WHERE id = :id")
-    Brewery findById(Long id);
+  @Query("SELECT * FROM brewery WHERE id = :id")
+  Brewery findById(Long id);
 
-    @Query("SELECT * FROM brewery WHERE name LIKE :queue")
-    List<Brewery> findByName(String queue);
+  @Query("SELECT * FROM brewery WHERE name LIKE :queue")
+  List<Brewery> findByName(String queue);
 
-    @Insert
-    void insertBrewery(Brewery brewery);
+  @Insert
+  void insertBrewery(Brewery brewery);
 
-    @Update
-    void updateBrewery(Brewery brewery);
+  @Update
+  void updateBrewery(Brewery brewery);
 
-    @Delete
-    void delete(Brewery brewery);
+  @Delete
+  void delete(Brewery brewery);
 }

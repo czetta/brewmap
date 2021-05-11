@@ -4,12 +4,13 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Date;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Brewery   {
+public class Brewery implements Serializable {
   
   @SerializedName("id")
   private Long id = null;
