@@ -20,93 +20,93 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 public class BreweryInteractor {
-    BreweryApi breweryApi;
+  BreweryApi breweryApi;
 
-    @Inject
-    public BreweryInteractor(BreweryApi breweryApi){
-        this.breweryApi=breweryApi;
-        BrewmapApplication.injector.inject(this);
-    }
+  @Inject
+  public BreweryInteractor(BreweryApi breweryApi){
+    this.breweryApi=breweryApi;
+    BrewmapApplication.injector.inject(this);
+  }
 
-    public void getBreweries(){
-        GetBreweriesEvent event = new GetBreweriesEvent();
-        try{
-            Call<List<Brewery>> breweriesCall = breweryApi.breweriesGet();
-            Response<List<Brewery>> response = breweriesCall.execute();
-            if(response.code()!=200) throw new Exception();
-            event.setCode(response.code());
-            event.setBreweries(response.body());
-            EventBus.getDefault().post(event);
-        } catch (Exception e) {
-            event.setThrowable(e);
-            EventBus.getDefault().post(event);
-        }
+  public void getBreweries(){
+    GetBreweriesEvent event = new GetBreweriesEvent();
+    try{
+      Call<List<Brewery>> breweriesCall = breweryApi.breweriesGet();
+      Response<List<Brewery>> response = breweriesCall.execute();
+      if(response.code()!=200) throw new Exception();
+      event.setCode(response.code());
+      event.setBreweries(response.body());
+      EventBus.getDefault().post(event);
+    } catch (Exception e) {
+      event.setThrowable(e);
+      EventBus.getDefault().post(event);
     }
-    public void getQueriedBreweries(String query){
-        GetQueriedBreweriesEvent event = new GetQueriedBreweriesEvent();
-        try{
-            Call<List<Brewery>> breweriesCall = breweryApi.breweriesSearchGet(query);
-            Response<List<Brewery>> response = breweriesCall.execute();
-            if(response.code()!=200) throw new Exception();
-            event.setCode(response.code());
-            event.setBreweries(response.body());
-            EventBus.getDefault().post(event);
-        } catch (Exception e) {
-            event.setThrowable(e);
-            EventBus.getDefault().post(event);
-        }
+  }
+  public void getQueriedBreweries(String query){
+    GetQueriedBreweriesEvent event = new GetQueriedBreweriesEvent();
+    try{
+      Call<List<Brewery>> breweriesCall = breweryApi.breweriesSearchGet(query);
+      Response<List<Brewery>> response = breweriesCall.execute();
+      if(response.code()!=200) throw new Exception();
+      event.setCode(response.code());
+      event.setBreweries(response.body());
+      EventBus.getDefault().post(event);
+    } catch (Exception e) {
+      event.setThrowable(e);
+      EventBus.getDefault().post(event);
     }
-    public void getBrewery(Long id){
-        GetBreweryEvent event = new GetBreweryEvent();
-        try{
-            Call<Brewery> breweryCall = breweryApi.breweriesIdGet(id);
-            Response<Brewery> response = breweryCall.execute();
-            if(response.code()!=200) throw new Exception();
-            event.setCode(response.code());
-            event.setBrewery(response.body());
-            EventBus.getDefault().post(event);
-        } catch (Exception e) {
-            event.setThrowable(e);
-            EventBus.getDefault().post(event);
-        }
+  }
+  public void getBrewery(Long id){
+    GetBreweryEvent event = new GetBreweryEvent();
+    try{
+      Call<Brewery> breweryCall = breweryApi.breweriesIdGet(id);
+      Response<Brewery> response = breweryCall.execute();
+      if(response.code()!=200) throw new Exception();
+      event.setCode(response.code());
+      event.setBrewery(response.body());
+      EventBus.getDefault().post(event);
+    } catch (Exception e) {
+      event.setThrowable(e);
+      EventBus.getDefault().post(event);
     }
-    public void postBrewery(Brewery brewery){
-        PostBreweryEvent event = new PostBreweryEvent();
-        try{
-            Call<Void> breweryCall = breweryApi.breweriesPost(brewery);
-            Response<Void> response = breweryCall.execute();
-            if(response.code()!=200) throw new Exception();
-            event.setCode(response.code());
-            EventBus.getDefault().post(event);
-        } catch (Exception e) {
-            event.setThrowable(e);
-            EventBus.getDefault().post(event);
-        }
+  }
+  public void postBrewery(Brewery brewery){
+    PostBreweryEvent event = new PostBreweryEvent();
+    try{
+      Call<Void> breweryCall = breweryApi.breweriesPost(brewery);
+      Response<Void> response = breweryCall.execute();
+      if(response.code()!=200) throw new Exception();
+      event.setCode(response.code());
+      EventBus.getDefault().post(event);
+    } catch (Exception e) {
+      event.setThrowable(e);
+      EventBus.getDefault().post(event);
     }
-    public void putBrewery(Long id, Brewery brewery){
-        PutBreweryEvent event = new PutBreweryEvent();
-        try{
-            Call<Void> breweryCall = breweryApi.breweriesIdPut(id,brewery);
-            Response<Void> response = breweryCall.execute();
-            if(response.code()!=200) throw new Exception();
-            event.setCode(response.code());
-            EventBus.getDefault().post(event);
-        } catch (Exception e) {
-            event.setThrowable(e);
-            EventBus.getDefault().post(event);
-        }
+  }
+  public void putBrewery(Long id, Brewery brewery){
+    PutBreweryEvent event = new PutBreweryEvent();
+    try{
+      Call<Void> breweryCall = breweryApi.breweriesIdPut(id,brewery);
+      Response<Void> response = breweryCall.execute();
+      if(response.code()!=200) throw new Exception();
+      event.setCode(response.code());
+      EventBus.getDefault().post(event);
+    } catch (Exception e) {
+      event.setThrowable(e);
+      EventBus.getDefault().post(event);
     }
-    public void delBrewery(Long id){
-        DelBreweryEvent event = new DelBreweryEvent();
-        try{
-            Call<Void> breweryCall = breweryApi.breweriesIdDelete(id);
-            Response<Void> response = breweryCall.execute();
-            if(response.code()!=200) throw new Exception();
-            event.setCode(response.code());
-            EventBus.getDefault().post(event);
-        } catch (Exception e) {
-            event.setThrowable(e);
-            EventBus.getDefault().post(event);
-        }
+  }
+  public void delBrewery(Long id){
+    DelBreweryEvent event = new DelBreweryEvent();
+    try{
+      Call<Void> breweryCall = breweryApi.breweriesIdDelete(id);
+      Response<Void> response = breweryCall.execute();
+      if(response.code()!=200) throw new Exception();
+      event.setCode(response.code());
+      EventBus.getDefault().post(event);
+    } catch (Exception e) {
+      event.setThrowable(e);
+      EventBus.getDefault().post(event);
     }
+  }
 }

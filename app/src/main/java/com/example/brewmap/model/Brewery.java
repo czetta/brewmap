@@ -3,15 +3,18 @@ package com.example.brewmap.model;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Date;
 
 import com.google.gson.annotations.SerializedName;
 
+@Entity
 public class Brewery implements Serializable {
-  
+
+  @PrimaryKey
   @SerializedName("id")
   private Long id = null;
   
@@ -58,10 +61,10 @@ public class Brewery implements Serializable {
   private String websiteUrl = null;
   
   @SerializedName("updated_at")
-  private Date updatedAt = null;
+  private String updatedAt = null;
   
   @SerializedName("created_at")
-  private Date createdAt = null;
+  private String createdAt = null;
   
 
   public Long getId() {
@@ -169,17 +172,17 @@ public class Brewery implements Serializable {
     this.websiteUrl = websiteUrl;
   }
 
-  public Date getUpdatedAt() {
+  public String getUpdatedAt() {
     return updatedAt;
   }
-  public void setUpdatedAt(Date updatedAt) {
+  public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
   }
 
-  public Date getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
-  public void setCreatedAt(Date createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 

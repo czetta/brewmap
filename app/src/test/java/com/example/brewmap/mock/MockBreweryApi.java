@@ -17,7 +17,7 @@ import retrofit2.http.Query;
 
 public class MockBreweryApi implements BreweryApi {
     @Override
-    public Call<List<Brewery>> breweriesGet() {
+    public Call<List<com.example.brewmap.data.Brewery>> breweriesGet() {
         final List<Brewery> result = new ArrayList<>();
         Brewery brewery=sampleBrewery();
 
