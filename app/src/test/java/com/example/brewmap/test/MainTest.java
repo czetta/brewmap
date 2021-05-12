@@ -33,7 +33,7 @@ public class MainTest {
     }
 
     @Test
-    public void testSearch(){
+    public void testSearchBrewery(){
         String query = "asd";
         mainPresenter.showBrewerySearchList(query);
         verify(mainScreen).showQueriedBreweries(query);
