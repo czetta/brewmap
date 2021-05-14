@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1072605700280",
+    "project_id": "brewmap-9bdbd",
+    "storage_bucket": "brewmap-9bdbd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1072605700280:android:e2cdbf09c322ce74b6d44d",
+        "android_client_info": {
+          "package_name": "com.example.brewmap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1072605700280-550fa9j9e99v38d3jvd3qlcus9gqe0mk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrPBFTL9wYvVHnwltn02njp9ZsM4Ofztk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1072605700280-550fa9j9e99v38d3jvd3qlcus9gqe0mk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
