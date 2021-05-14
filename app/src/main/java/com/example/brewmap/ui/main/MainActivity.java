@@ -16,6 +16,7 @@ import com.example.brewmap.BrewmapApplication;
 import com.example.brewmap.R;
 import com.example.brewmap.model.Brewery;
 import com.example.brewmap.ui.details.DetailsActivity;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     private List<Brewery> breweries;
     private MainAdapter mainAdapter;
     private RecyclerView recyclerViewMain;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     public MainActivity(){
         BrewmapApplication.injector.inject(this);
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BrewmapApplication.injector.inject(this);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         recyclerViewMain=findViewById(R.id.recyclerViewMain);
         etSearch=findViewById(R.id.etSearch);
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         mainAdapter=new MainAdapter(this, breweries);
         recyclerViewMain.setAdapter(mainAdapter);
         recyclerViewMain.setLayoutManager(new LinearLayoutManager(this));
+
 
         Button buttonSearch=findViewById(R.id.buttonSearch);
         buttonSearch.setOnClickListener((v)->{
