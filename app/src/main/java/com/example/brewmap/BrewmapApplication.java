@@ -2,11 +2,14 @@ package com.example.brewmap;
 
 import android.app.Application;
 
-public class BrewmapApplication extends Application {
-    public static BrewmapApplicationComponent injector;
+import com.example.brewmap.ui.UIModule;
 
-    @Override
-    public void onCreate(){
-        super.onCreate();
-    }
+public class BrewmapApplication extends Application {
+  public static BrewmapApplicationComponent injector;
+
+  @Override
+  public void onCreate(){
+    super.onCreate();
+    injector=DaggerBrewmapApplicationComponent.builder().uIModule(new UIModule(this)).build();
+  }
 }

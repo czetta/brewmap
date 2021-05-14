@@ -14,29 +14,17 @@ import java.util.concurrent.Executor;
 import javax.inject.Inject;
 
 public class BreweryPresenter extends Presenter<BreweryScreen> {
-    Executor networkExecutor;
-    BreweryInteractor breweryInteractor;
 
     @Inject
-    public BreweryPresenter(@Network Executor networkExecutor, BreweryInteractor breweryInteractor){
-        this.networkExecutor=networkExecutor;
-        this.breweryInteractor=breweryInteractor;
-    }
+    public BreweryPresenter(){}
 
     @Override
     public void attachScreen(BreweryScreen screen){
         super.attachScreen(screen);
-        EventBus.getDefault().register(this);
     }
 
     @Override
     public void detachScreen(){
-        EventBus.getDefault().unregister(this);
         super.detachScreen();
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventMainThread(final GetBreweryEvent event){
-
     }
 }
